@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tennis Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">T</div>
+          <div>
+            <p class="eyebrow">Performance Lab</p>
+            <h1>Tennis Analytics</h1>
+          </div>
+        </div>
+        <button class="primary-btn" id="analyzeBtn" type="button">Analyze video</button>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel uploader-panel">
+          <div class="panel-header">
+            <span class="label-pill">Upload</span>
+            <h2>Match video</h2>
+          </div>
+
+          <label class="upload-box" for="videoUpload">
+            <input id="videoUpload" type="file" accept="video/*" />
+            <span class="upload-icon">⬆</span>
+            <strong>Choose tennis match video</strong>
+            <small>MP4, MOV, or WebM</small>
+          </label>
+
+          <div class="video-stage">
+            <video id="video" controls playsinline muted preload="metadata"></video>
+            <canvas id="overlayCanvas"></canvas>
+          </div>
+
+          <div class="video-meta">
+            <div>
+              <span>Status</span>
+              <strong id="statusText">Waiting for video</strong>
+            </div>
+            <div>
+              <span>Frames processed</span>
+              <strong id="frameCounter">0</strong>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel summary-panel">
+          <div class="panel-header">
+            <span class="label-pill accent">Insights</span>
+            <h2>Match summary</h2>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <span>Court coverage</span>
+              <strong id="coverageValue">0%</strong>
+            </article>
+            <article class="stat-card">
+              <span>Avg speed</span>
+              <strong id="speedValue">0 m/s</strong>
+            </article>
+            <article class="stat-card">
+              <span>Stroke count</span>
+              <strong id="strokeValue">0</strong>
+            </article>
+            <article class="stat-card">
+              <span>Motion time</span>
+              <strong id="motionTimeValue">0s</strong>
+            </article>
+            <article class="stat-card">
+              <span>Posture score</span>
+              <strong id="postureValue">0/100</strong>
+            </article>
+            <article class="stat-card">
+              <span>Detected poses</span>
+              <strong id="poseValue">0</strong>
+            </article>
+          </div>
+
+          <div class="insight-box">
+            <h3>Coach notes</h3>
+            <p id="coachNotes">
+              Upload a tennis clip to generate an analysis report from the player pose data.
+            </p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
